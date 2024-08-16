@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     deleteButton.textContent = '삭제';
                     deleteButton.addEventListener('click', async () => {
                         await deleteSchedule(formattedDate, schedule);
-                        renderCalendar();
+                        renderCalendar();  // Refresh calendar after deletion
                     });
                     listItem.appendChild(deleteButton);
 
@@ -124,9 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function getSchedulesForDate(date) {
-        const response = await fetch(`http://localhost:3000/schedules`);
+        const response = await fetch('http://localhost:3000/schedules');
         const schedules = await response.json();
-        return schedules.filter(schedule => schedule.date === date).map(schedule => schedule.description);
+        return schedules
+            .filter(schedule => schedule.date === date)
+            .map(schedule => schedule.description);
     }
 
     async function addSchedule(date, description) {
