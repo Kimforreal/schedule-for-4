@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2주 일정 관리</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="mode-selection">
+        <button id="view-mode">보기</button>
+        <button id="edit-mode">편집</button>
+    </div>
+
+    <div id="calendar-container" class="hidden">
+        <div id="calendar-controls">
+            <button id="add-schedule" class="hidden">일정 추가</button>
+        </div>
+        <table id="calendar"></table>
+    </div>
+
+    <div id="schedule-modal" class="modal hidden">
+        <h2 id="modal-title">일정 추가</h2>
+        <label for="schedule-date">날짜:</label>
+        <input type="date" id="schedule-date">
+        <label for="schedule-description">일정:</label>
+        <textarea id="schedule-description"></textarea>
+        <button id="save-schedule">저장</button>
+        <button id="cancel">취소</button>
+    </div>
+
+    <div id="password-modal" class="modal hidden">
+        <h2>비밀번호 입력</h2>
+        <input type="password" id="password-input" placeholder="비밀번호">
+        <button id="password-submit">확인</button>
+        <button id="password-cancel">취소</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
